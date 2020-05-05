@@ -13,6 +13,8 @@
         <module>day1-RMIClient</module>
         <module>day1-HessianServer</module>
         <module>day1-HessianClient</module>
+        <module>day1-HttpInvokerServer</module>
+        <module>day1-HttpInvokerClient</module>
     </modules>
     <packaging>pom</packaging>
     <properties>
