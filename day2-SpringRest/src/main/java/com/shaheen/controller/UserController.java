@@ -1,7 +1,6 @@
 package com.shaheen.controller;
 
 import com.shaheen.exception.BadRequestExpection;
-import com.shaheen.exception.EntityExistException;
 import com.shaheen.exception.NotFoundException;
 import com.shaheen.model.User;
 import com.shaheen.service.UserService;
@@ -51,12 +50,8 @@ public class UserController {
 
     @PutMapping
     public ResponseEntity<User> updateUser(@Valid @RequestBody User user) {
-        user = userService.save(user);
-        if (user.getId() > 0) {
-            return new ResponseEntity<>(user, HttpStatus.OK);
-        } else {
-            throw new EntityExistException("user Already exists");
-        }
+        user = userService.update(user);
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
