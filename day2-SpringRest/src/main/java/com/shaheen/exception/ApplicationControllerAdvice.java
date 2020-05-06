@@ -29,6 +29,12 @@ public class ApplicationControllerAdvice extends ResponseEntityExceptionHandler 
         return new ResponseEntity<>(errorDetails, ex.getHttpStatus());
     }
 
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorDetails> handleGeneralApiException(Exception ex, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails(ex.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
+    }
+
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
         ValidationError validationError = new ValidationError();
