@@ -50,8 +50,12 @@ public class UserController {
 
     @PutMapping
     public ResponseEntity<User> updateUser(@Valid @RequestBody User user) {
-        user = userService.update(user);
-        return new ResponseEntity<>(user, HttpStatus.OK);
+        if (user.getId() != null && user.getId() > 0) {
+            user = userService.update(user);
+            return new ResponseEntity<>(user, HttpStatus.OK);
+        } else {
+            throw new BadRequestExpection(String.format("can't find user with id (%s) on our db", user.getId()));
+        }
     }
 
     @DeleteMapping("/{id}")
