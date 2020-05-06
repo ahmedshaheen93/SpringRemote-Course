@@ -17,6 +17,7 @@
         <module>day1-HttpInvokerClient</module>
         <module>day2-Spring-Jax-ws</module>
         <module>day2-Spring-Jax-ws-Client</module>
+        <module>day2-SpringRest</module>
     </modules>
     <packaging>pom</packaging>
     <properties>
