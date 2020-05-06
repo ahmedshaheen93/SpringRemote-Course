@@ -30,8 +30,13 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public User getById(@Valid @PathVariable("id") Long id) {
-        return userService.findById(id);
+    public ResponseEntity<User> getById(@Valid @PathVariable("id") Long id) {
+        User user = userService.findById(id);
+        if (user != null) {
+            return new ResponseEntity<>(user, HttpStatus.OK);
+        } else {
+            throw new NotFoundException(String.format("can't find user with id (%s) on our db", id));
+        }
     }
 
     @PostMapping
