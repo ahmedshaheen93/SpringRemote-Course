@@ -15,7 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>11</maven.compiler.release>
         <hibernate.version>5.4.12.Final</hibernate.version>
-        <fasterxml.jackson.version>2.12.1</fasterxml.jackson.version>
+        <fasterxml.jackson.version>2.12.6.1</fasterxml.jackson.version>
     </properties>
     <dependencies>
         <dependency>
@@ -26,7 +26,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>5.2.5.RELEASE</version>
+            <version>5.3.18</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
